@@ -1,400 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Home</title>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
-            integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-        <link
-            href="https://db.onlinewebfonts.com/c/05e476e067ffef74ca5686f229c40a63?family=PingFang+SC+Regular"
-            rel="stylesheet"
-        />
-        <link href="{{ asset('public/frontend') }}/assets/css/slick.css" rel="stylesheet" />
-        <link href="{{ asset('public/frontend') }}/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+      integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: "PingFang SC Regular";
-            }
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/jquery.toast.css" rel="stylesheet" />
 
-            html,
-            body {
-                font-family: "PingFang SC Regular";
-            }
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-            .slider-img {
-                height: 240px;
-            }
+      a {
+        text-decoration: none;
+      }
 
-            .sm-icon {
-                height: 40px;
-                width: 40px;
-                display: block;
-            }
+      .fs-7 {
+        font-size: 11px;
+      }
 
-            .md-icon {
-                height: 90px;
-                width: 90px;
-                display: block;
-            }
+      .fs-8 {
+        font-size: 14px;
+      }
 
-            .link {
-                text-decoration: none;
-                text-align: center;
-                display: block;
-            }
+      .record-card {
+        box-shadow: 0 0px 3px #a8a3a3;
+        border-radius: 12px;
+      }
 
-            .link-title {
-                color: black;
-                font-size: 12px;
-                padding: 5px 0px;
-            }
+      .footer-icon {
+        font-size: 35px;
+        color: black;
+      }
 
-            .fs-7 {
-                font-size: 14px;
-            }
-
-            .fs-8 {
-                font-size: 12px;
-            }
-
-            .support {
-                position: fixed;
-                top: 50%;
-                right: 1%;
-            }
-
-            .download {
-                position: fixed;
-                top: 10%;
-                right: 5%;
-                z-index: 9;
-            }
-
-            .footer-icon {
-                height: 30px;
-                width: 30px;
-                display: block;
-            }
-
-            .link-footer-title {
-                color: black;
-                font-size: 10px;
-                padding-top: 5px;
-                padding-bottom: 0px;
-                margin-bottom: 2px;
-            }
-
-            .header-bg {
-                background-color: rgb(248, 248, 248);
-                color: rgb(0, 0, 0);
-                padding: 7px 3px;
-            }
-
-            .back-icon {
-                text-decoration: none;
-                color: rgb(0, 0, 0);
-            }
-
-            .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
-                background: linear-gradient(
-                    260deg,
-                    rgb(253, 167, 88) 0%,
-                    rgb(253, 167, 88) 100%
-                );
-            }
-
-            .btn-orange {
-                background: linear-gradient(
-                    260deg,
-                    rgb(253, 167, 88) 0%,
-                    rgb(253, 167, 88) 100%
-                );
-
-                border-radius: 30px;
-                color: white;
-                padding: 2px 15px;
-            }
-
-            .plan-title{
-                color: #6d8078;
-                margin-bottom: 7px;
-            }
-
-            .plan-img{
-                width: 100px;
-                height: 100px;
-                margin-bottom: 5px;
-                margin-top: 0px;
-            }
-
-            .plan-icon{
-                background: linear-gradient(
-                    260deg,
-                    rgb(253, 167, 88) 0%,
-                    rgb(253, 167, 88) 100%
-                );
-
-                border-radius: 50%;
-                padding: 3px;
-            }
-
-            .plan-icon i{
-                font-size: 12px;
-            }
-
-            .table-sm>:not(caption)>*>*{
-                padding: 1px 5px;
-                color: #6d8078;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="row">
-            <div class="col-md-6 col-12 mx-auto">
-                <div class="d-flex align-items-center header-bg">
-                    <a href="" class="back-icon">
-                        <i class="las la-angle-left"></i>
-                    </a>
-                    <div class="ms-3 w-100">
-                        <div class="login-title text-center">Rent</div>
-                    </div>
-                </div>
-
-                <div class="px-3 mt-3">
-                    <ul
-                        class="nav nav-pills nav-fill mb-3"
-                        id="pills-tab"
-                        role="tablist"
-                    >
-                        <li class="nav-item" role="presentation">
-                            <button
-                                class="nav-link active"
-                                id="pills-home-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-home"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-home"
-                                aria-selected="true"
-                            >
-                                Standart EQ
-                            </button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button
-                                class="nav-link"
-                                id="pills-profile-tab"
-                                data-bs-toggle="pill"
-                                data-bs-target="#pills-profile"
-                                type="button"
-                                role="tab"
-                                aria-controls="pills-profile"
-                                aria-selected="false"
-                            >
-                                Walfare EQ
-                            </button>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="pills-tabContent">
-                        <div
-                            class="tab-pane fade show active"
-                            id="pills-home"
-                            role="tabpanel"
-                            aria-labelledby="pills-home-tab"
-                            tabindex="0"
-                        >
-                        @foreach(\App\Models\Package::get() as $element)
-                            <?php
-                            $myVip = \App\Models\Purchase::where('user_id', auth()->id())->where('package_id', $element->id)->where('status', 'active')->first();
-                            ?>
-
-                            <div class="box">
-                                <div class="plan-title">
-                                    {{ $element->name }}
-                                </div>
-
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <img src="{{ asset(view_image($element->photo)) }}" class="plan-img"/>
-                                        @if($myVip)
-                                        <button type="button" class="btn btn-sm btn-orange mt-1">Current</button>
-                                        @else 
-                                        <button type="button" onclick="openPopPurchase('package{{$element->id}}')" class="btn btn-sm btn-orange mt-1">Current</button>
-                                        @endif
-                                    </div>
-                                    <div>
-                                        <table class="table table-sm table-borderless">
-                                            <tr>
-                                                <td class="text-start" style="width: 10%;">
-                                                    <span class="plan-icon">
-                                                        <i class="las la-check"></i>
-                                                    </span>
-                                                </td>
-                                                <td class="text-start fs-7" style="width: 50%;">
-                                                    Total Price
-                                                </td>
-                                                <td class="text-end fs-7" style="width: 40%;">
-                                                    {{ price($element->price) }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-start">
-                                                    <span class="plan-icon">
-                                                        <i class="las la-check"></i>
-                                                    </span>
-                                                </td>
-                                                <td class="text-start fs-7">
-                                                   Circulations
-                                                </td>
-                                                <td class="text-end fs-7">
-                                                    {{ $element->validity }} day
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-start">
-                                                    <span class="plan-icon">
-                                                        <i class="las la-check"></i>
-                                                    </span>
-                                                </td>
-                                                <td class="text-start fs-7">
-                                                    Daily Income
-                                                </td>
-                                                <td class="text-end fs-7">
-                                                    {{price($element->commission_with_avg_amount != 0 ? $element->commission_with_avg_amount / $element->validity : $element->commission_with_avg_amount)}}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-start">
-                                                    <span class="plan-icon">
-                                                        <i class="las la-check"></i>
-                                                    </span>
-                                                </td>
-                                                <td class="text-start fs-7">
-                                                    Total Inome
-                                                </td>
-                                                <td class="text-end fs-7">
-                                                    {{price($element->commission_with_avg_amount != 0 ? $element->commission_with_avg_amount / $element->validity : $element->commission_with_avg_amount)}}
-                                                </td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td colspan="3">
-                                                    <span class="fs-7">
-                                                        {{ $element->desc }}
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        </table>
-
-                                       
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="pop_purchase" id="package{{$element->id}}" style="display: none">
-                                <div class="pop_container_purchase">
-                                    <h3>Purchase Confirmation</h3>
-                                    <p>Are you sure you want to buy this {{$element->name}}?</p>
-
-                                    <div class="purchase_btns">
-                                        <button style="color: red;" onclick="closePopPurchase('package{{$element->id}}')">Cancel</button>
-                                        <button style="color: #0FE50F;" onclick="window.location.href='{{route('purchase.confirmation', $element->id)}}'">OK</button>
-                                        <div class="h_border"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        @endforeach
-
-                        </div>
-                        <div
-                            class="tab-pane fade"
-                            id="pills-profile"
-                            role="tabpanel"
-                            aria-labelledby="pills-profile-tab"
-                            tabindex="0"
-                        >
-                            ...
-                        </div>
-                    </div>
-                </div>
-
-
-                <div
-                    class="bg-white pt-2"
-                    style="
-                        position: fixed;
-                        bottom: 0px;
-                        left: 0px;
-                        width: 100%;
-                        border-top: 1px solid rgb(0 0 0 / 33%);
-                    "
-                >
-                    <div class="row row-cols-5">
-                        <div class="col">
-                            <a
-                                class="align-items-center d-flex flex-column link"
-                            >
-                                <img src="{{ asset('public/frontend') }}/image/home.png" class="footer-icon" />
-                                <p class="link-footer-title">Home</p>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a
-                                class="align-items-center d-flex flex-column link"
-                            >
-                                <img src="{{ asset('public/frontend') }}/image/rent.png" class="footer-icon" />
-                                <p class="link-footer-title">Rent</p>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a
-                                class="align-items-center d-flex flex-column link"
-                            >
-                                <img
-                                    src="{{ asset('public/frontend') }}/image/income.png"
-                                    class="footer-icon"
-                                />
-                                <p class="link-footer-title">Income</p>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a
-                                class="align-items-center d-flex flex-column link"
-                            >
-                                <img
-                                    src="{{ asset('public/frontend') }}/image/share.png"
-                                    class="footer-icon"
-                                />
-                                <p class="link-footer-title">Share</p>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a
-                                class="align-items-center d-flex flex-column link"
-                            >
-                                <img src="{{ asset('public/frontend') }}/image/user.png" class="footer-icon" />
-                                <p class="link-footer-title">User</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      .link-footer-title {
+        margin: 0;
+        font-size: 10px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body style="overflow-x: hidden;" class="bg-light">
+    <div class="container">
+      <div class="d-flex align-items-center py-2 mb-4">
+        <a href="" class="fs-3 text-dark me-5">
+          <i class="las la-angle-left"></i>
+        </a>
+        <div class="d-flex align-items-center justify-content-center">
+          <span class="">EDP Renovaveis</span>
         </div>
+      </div>
 
-        <script src="{{ asset('public/frontend') }}/assets/js/jquery.min.js"></script>
-        <script src="{{ asset('public/frontend') }}/assets/js/bootstrap.bundle.min.js"></script>
-        <script src="{{ asset('public/frontend') }}/assets/js/slick.min.js"></script>
-    </body>
+      <div class="card border-0">
+        <div class="card-body">
+
+            <div class="text-center">
+                <h1 class="mb-3">নতুন শক্তি প্রকল্প</h1>
+                <p class="fs-7">উচ্চ ফলন, ০ ঝুঁকি, পরিপক্কতার পরে স্বয়ংক্রিয় অর্থ প্রদান</p>
+            </div>
+
+          <div class="mb-4">
+            <img
+              class="card-img"
+              style="height: 160px;"
+              src="https://ecdn.dhakatribune.net/contents/cache/images/1100x618x1/uploads/media/2023/08/05/unnamed-1543664750330-b0730a181fed83a71dd3183fd9f557b6.jpeg"
+            />
+
+            <div class="text-center mt-3">
+              <h5 class="fs-6 fw-bold">লোন স্টার ফেজ ||| উইন্ড ফার্ম</h5>
+
+              <div class="row mt-3">
+                <div class="col text-center">
+                  <div class="fs-6">পরিবেশন প্রতি মূল্য</div>
+                </div>
+                <div class="col text-center">
+                  <div class="fs-6">দৈনিক আয়</div>
+                </div>
+                <div class="col text-center">
+                  <div class="fs-6">প্রকল্প চক্র</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="text-info fw-bold fs-6">70000 ৳</div>
+                </div>
+                <div class="col">
+                  <div class="text-info fw-bold fs-6">8400 ৳</div>
+                </div>
+                <div class="col">
+                  <div class="text-info fw-bold fs-6">12 দিন</div>
+                </div>
+              </div>
+            </div>
+            <p class="my-2 fs-8">
+              আয় বিবৃতি: আয় বিবৃতি: বিনিয়োগ সফল হলে, লাভ প্রতিদিন গণনা করা হবে,
+              বিনিয়োগচক্রের শেষে, সিস্টেম আপনার সদ একাউন্টে বিনিয়োগ তহবিল ফেরত
+              দিবে।
+            </p>
+
+            <div class="px-4">
+              <div class="row">
+                <div class="col">
+                  <div class="fw-bold fs-6">
+                    সম্পন্ন: <span class="text-info">0</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="fw-bold fs-6">
+                    অবশিষ্ট: <span class="text-info">4000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr style="border: 2px solid;"/>
+
+            <button type="button" class="btn btn-lg btn-primary w-100 fs-6">এখনই বিনিয়োগ করুন</button>
+          </div>
+
+
+          <div class="mb-3">
+            <img
+              class="card-img"
+              src="https://ecdn.dhakatribune.net/contents/cache/images/1100x618x1/uploads/media/2023/08/05/unnamed-1543664750330-b0730a181fed83a71dd3183fd9f557b6.jpeg"
+            />
+
+            <div class="text-center mt-3">
+              <h5 class="fs-6 fw-bold">লোন স্টার ফেজ ||| উইন্ড ফার্ম</h5>
+
+              <div class="row mt-3">
+                <div class="col text-center">
+                  <div class="fs-6">পরিবেশন প্রতি মূল্য</div>
+                </div>
+                <div class="col text-center">
+                  <div class="fs-6">দৈনিক আয়</div>
+                </div>
+                <div class="col text-center">
+                  <div class="fs-6">প্রকল্প চক্র</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="text-info fw-bold fs-6">70000 ৳</div>
+                </div>
+                <div class="col">
+                  <div class="text-info fw-bold fs-6">8400 ৳</div>
+                </div>
+                <div class="col">
+                  <div class="text-info fw-bold fs-6">12 দিন</div>
+                </div>
+              </div>
+            </div>
+            <p class="my-2 fs-8">
+              আয় বিবৃতি: আয় বিবৃতি: বিনিয়োগ সফল হলে, লাভ প্রতিদিন গণনা করা হবে,
+              বিনিয়োগচক্রের শেষে, সিস্টেম আপনার সদ একাউন্টে বিনিয়োগ তহবিল ফেরত
+              দিবে।
+            </p>
+
+            <div class="px-4">
+              <div class="row">
+                <div class="col">
+                  <div class="fw-bold fs-6">
+                    সম্পন্ন: <span class="text-info">0</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="fw-bold fs-6">
+                    অবশিষ্ট: <span class="text-info">4000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr style="border: 2px solid;"/>
+
+            <button type="button" class="btn btn-lg btn-primary w-100 fs-6">এখনই বিনিয়োগ করুন</button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 80px"></div>
+
+    <div
+      class="bg-white pt-2"
+      style="position: fixed; bottom: 0px; left: 0px; width: 100%"
+    >
+      <div class="row row-cols-5">
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="las la-home footer-icon"></i>
+            <p class="link-footer-title">প্রথম পাতা</p>
+          </a>
+        </div>
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="las la-shopping-cart footer-icon"></i>
+            <p class="link-footer-title">পয়েন্টস মল</p>
+          </a>
+        </div>
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="las la-wave-square footer-icon"></i>
+            <p class="link-footer-title">বিনিয়োগ</p>
+          </a>
+        </div>
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="las la-audio-description footer-icon"></i>
+            <p class="link-footer-title">ডিআইপি</p>
+          </a>
+        </div>
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="lar la-user footer-icon"></i>
+            <p class="link-footer-title">আমার</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.toast.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $.toast({
+        heading: "Error",
+        text: "Use the predefined ones, or specify a custom position object.",
+        position: "top-center",
+        icon: "error",
+        stack: false,
+      });
+
+      $.toast({
+        heading: "Success",
+        text: "Use the predefined ones, or specify a custom position object.",
+        position: "top-center",
+        icon: "success",
+        stack: false,
+      });
+    </script>
+  </body>
 </html>
