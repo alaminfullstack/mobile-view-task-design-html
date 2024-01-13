@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+      integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/jquery.toast.css" rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .fs-7{
+        font-size: 16px;
+      }
+
+      .input-group-text{
+        border: none;
+      }
+
+      .form-control{
+        padding: 15px 10px;
+      }
+
+      .form-control-bg{
+        border-left: 0;
+        border-right: 0;
+        border: none;
+        background-color: var(--bs-tertiary-bg);
+      }
+
+      .form-control-bg:focus{
+        border: none;
+        background-color: var(--bs-tertiary-bg);
+        outline: none;
+        box-shadow: none;
+      }
+
+      .btn-info{
+        border-radius: 25px;
+      }
+
+     
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="px-3">
+            <div class="mx-auto py-3 text-center">
+                <img src="image/logo.png" >
+            </div>
+
+            <form>
+                <div class="mb-4">
+                    <label class="form-label">ডিপোজিট পরিমাণ:</label>
+                    <div class="input-group">
+                        <div class="input-group-text">
+                            <i class="las la-dollar-sign fs-5"></i>
+                        </div>
+                        <input name="amount" class="form-control form-control-bg" placeholder="" value="400.00" />
+                        <div class="input-group-text">
+                            <i class="lar la-copy fs-5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">নগদ এজেন্ট নম্বর:</label>
+                    <div class="input-group">
+                        <input name="account" class="form-control form-control-bg" readonly placeholder="" value="0179909323" />
+                        <div class="input-group-text">
+                            <i class="lar la-copy fs-5"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">ক্যাশ আউট ফ্রম:</label>
+                    <div class="input-group">
+                        <input name="account" class="form-control" readonly placeholder="Please Select" value="" />
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label">ট্রানসাকশান আইডি:</label>
+                    <div class="input-group">
+                        <input name="account" class="form-control" readonly placeholder="এখানে আপনার ট্রানজেকশন আইডিটা লিখুন।" value="" />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-lg btn-info mb-3 w-100">নিশ্চিত করুন</button>
+            </form>
+
+            <p>কিভাবে ডিপোজিট করবেন?</p>
+            <ol>
+                <li> আপনার নগদ ওয়ালেট নম্বর লিখুন</li>
+                <li> নগদ অ্যাপ দিয়ে পেমেন্ট করুনআপনার নগদ অ্যাপ খুলুন, ক্যাশ-আউট নির্বাচন</li>
+            </ol>
+        </div>  
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.toast.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $.toast({
+        heading: "Error",
+        text: "Use the predefined ones, or specify a custom position object.",
+        position: "top-center",
+        icon: "error",
+        stack: false,
+      });
+
+      $.toast({
+        heading: "Success",
+        text: "Use the predefined ones, or specify a custom position object.",
+        position: "top-center",
+        icon: "success",
+        stack: false,
+      });
+    </script>
+  </body>
+</html>

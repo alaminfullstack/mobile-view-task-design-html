@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Home</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+            integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link
+            href="https://db.onlinewebfonts.com/c/05e476e067ffef74ca5686f229c40a63?family=PingFang+SC+Regular"
+            rel="stylesheet"
+        />
+        <link href="{{ asset('public/frontend') }}/assets/css/slick.css" rel="stylesheet" />
+        <link href="{{ asset('public/frontend') }}/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "PingFang SC Regular";
+            }
+
+            html,
+            body {
+                font-family: "PingFang SC Regular";
+            }
+
+            .slider-img {
+                height: 240px;
+            }
+
+            .sm-icon {
+                height: 40px;
+                width: 40px;
+                display: block;
+            }
+
+            .md-icon {
+                height: 90px;
+                width: 90px;
+                display: block;
+            }
+
+            .link {
+                text-decoration: none;
+                text-align: center;
+                display: block;
+            }
+
+            .link-title {
+                color: black;
+                font-size: 12px;
+                padding: 5px 0px;
+            }
+
+            .fs-7 {
+                font-size: 14px;
+            }
+
+            .fs-8 {
+                font-size: 12px;
+            }
+
+            .support {
+                position: fixed;
+                top: 50%;
+                right: 1%;
+            }
+
+            .download {
+                position: fixed;
+                top: 10%;
+                right: 5%;
+                z-index: 9;
+            }
+
+            .footer-icon {
+                height: 30px;
+                width: 30px;
+                display: block;
+            }
+
+            .link-footer-title {
+                color: black;
+                font-size: 10px;
+                padding-top: 5px;
+                padding-bottom: 0px;
+                margin-bottom: 2px;
+            }
+
+            .header-bg {
+                background-color: rgb(248, 248, 248);
+                color: rgb(0, 0, 0);
+                padding: 7px 3px;
+            }
+
+            .back-icon {
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+            }
+
+            .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+                background: linear-gradient(
+                    260deg,
+                    rgb(253, 167, 88) 0%,
+                    rgb(253, 167, 88) 100%
+                );
+            }
+
+            .btn-orange {
+                background: linear-gradient(
+                    260deg,
+                    rgb(253, 167, 88) 0%,
+                    rgb(253, 167, 88) 100%
+                );
+
+                border-radius: 30px;
+                color: white;
+                padding: 2px 15px;
+            }
+
+            .plan-title{
+                color: #6d8078;
+                margin-bottom: 7px;
+            }
+
+            .plan-img{
+                width: 100px;
+                height: 100px;
+                margin-bottom: 5px;
+                margin-top: 0px;
+            }
+
+            .plan-icon{
+                background: linear-gradient(
+                    260deg,
+                    rgb(253, 167, 88) 0%,
+                    rgb(253, 167, 88) 100%
+                );
+
+                border-radius: 50%;
+                padding: 3px;
+            }
+
+            .plan-icon i{
+                font-size: 12px;
+            }
+
+            .table-sm>:not(caption)>*>*{
+                padding: 1px 5px;
+                color: #6d8078;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-6 col-12 mx-auto">
+                <div class="d-flex align-items-center header-bg">
+                    <a href="" class="back-icon">
+                        <i class="las la-angle-left"></i>
+                    </a>
+                    <div class="ms-3 w-100">
+                        <div class="login-title text-center">Rent</div>
+                    </div>
+                </div>
+
+                <div class="px-3 mt-3">
+                    <ul
+                        class="nav nav-pills nav-fill mb-3"
+                        id="pills-tab"
+                        role="tablist"
+                    >
+                        <li class="nav-item" role="presentation">
+                            <button
+                                class="nav-link active"
+                                id="pills-home-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#pills-home"
+                                type="button"
+                                role="tab"
+                                aria-controls="pills-home"
+                                aria-selected="true"
+                            >
+                                Standart EQ
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button
+                                class="nav-link"
+                                id="pills-profile-tab"
+                                data-bs-toggle="pill"
+                                data-bs-target="#pills-profile"
+                                type="button"
+                                role="tab"
+                                aria-controls="pills-profile"
+                                aria-selected="false"
+                            >
+                                Walfare EQ
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div
+                            class="tab-pane fade show active"
+                            id="pills-home"
+                            role="tabpanel"
+                            aria-labelledby="pills-home-tab"
+                            tabindex="0"
+                        >
+                        @foreach(\App\Models\Package::get() as $element)
+                            <?php
+                            $myVip = \App\Models\Purchase::where('user_id', auth()->id())->where('package_id', $element->id)->where('status', 'active')->first();
+                            ?>
+
+                            <div class="box">
+                                <div class="plan-title">
+                                    {{ $element->name }}
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <img src="{{ asset(view_image($element->photo)) }}" class="plan-img"/>
+                                        @if($myVip)
+                                        <button type="button" class="btn btn-sm btn-orange mt-1">Current</button>
+                                        @else 
+                                        <button type="button" onclick="openPopPurchase('package{{$element->id}}')" class="btn btn-sm btn-orange mt-1">Current</button>
+                                        @endif
+                                    </div>
+                                    <div>
+                                        <table class="table table-sm table-borderless">
+                                            <tr>
+                                                <td class="text-start" style="width: 10%;">
+                                                    <span class="plan-icon">
+                                                        <i class="las la-check"></i>
+                                                    </span>
+                                                </td>
+                                                <td class="text-start fs-7" style="width: 50%;">
+                                                    Total Price
+                                                </td>
+                                                <td class="text-end fs-7" style="width: 40%;">
+                                                    {{ price($element->price) }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start">
+                                                    <span class="plan-icon">
+                                                        <i class="las la-check"></i>
+                                                    </span>
+                                                </td>
+                                                <td class="text-start fs-7">
+                                                   Circulations
+                                                </td>
+                                                <td class="text-end fs-7">
+                                                    {{ $element->validity }} day
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start">
+                                                    <span class="plan-icon">
+                                                        <i class="las la-check"></i>
+                                                    </span>
+                                                </td>
+                                                <td class="text-start fs-7">
+                                                    Daily Income
+                                                </td>
+                                                <td class="text-end fs-7">
+                                                    {{price($element->commission_with_avg_amount != 0 ? $element->commission_with_avg_amount / $element->validity : $element->commission_with_avg_amount)}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-start">
+                                                    <span class="plan-icon">
+                                                        <i class="las la-check"></i>
+                                                    </span>
+                                                </td>
+                                                <td class="text-start fs-7">
+                                                    Total Inome
+                                                </td>
+                                                <td class="text-end fs-7">
+                                                    {{price($element->commission_with_avg_amount != 0 ? $element->commission_with_avg_amount / $element->validity : $element->commission_with_avg_amount)}}
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td colspan="3">
+                                                    <span class="fs-7">
+                                                        {{ $element->desc }}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                       
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="pop_purchase" id="package{{$element->id}}" style="display: none">
+                                <div class="pop_container_purchase">
+                                    <h3>Purchase Confirmation</h3>
+                                    <p>Are you sure you want to buy this {{$element->name}}?</p>
+
+                                    <div class="purchase_btns">
+                                        <button style="color: red;" onclick="closePopPurchase('package{{$element->id}}')">Cancel</button>
+                                        <button style="color: #0FE50F;" onclick="window.location.href='{{route('purchase.confirmation', $element->id)}}'">OK</button>
+                                        <div class="h_border"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        @endforeach
+
+                        </div>
+                        <div
+                            class="tab-pane fade"
+                            id="pills-profile"
+                            role="tabpanel"
+                            aria-labelledby="pills-profile-tab"
+                            tabindex="0"
+                        >
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+
+                <div
+                    class="bg-white pt-2"
+                    style="
+                        position: fixed;
+                        bottom: 0px;
+                        left: 0px;
+                        width: 100%;
+                        border-top: 1px solid rgb(0 0 0 / 33%);
+                    "
+                >
+                    <div class="row row-cols-5">
+                        <div class="col">
+                            <a
+                                class="align-items-center d-flex flex-column link"
+                            >
+                                <img src="{{ asset('public/frontend') }}/image/home.png" class="footer-icon" />
+                                <p class="link-footer-title">Home</p>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a
+                                class="align-items-center d-flex flex-column link"
+                            >
+                                <img src="{{ asset('public/frontend') }}/image/rent.png" class="footer-icon" />
+                                <p class="link-footer-title">Rent</p>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a
+                                class="align-items-center d-flex flex-column link"
+                            >
+                                <img
+                                    src="{{ asset('public/frontend') }}/image/income.png"
+                                    class="footer-icon"
+                                />
+                                <p class="link-footer-title">Income</p>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a
+                                class="align-items-center d-flex flex-column link"
+                            >
+                                <img
+                                    src="{{ asset('public/frontend') }}/image/share.png"
+                                    class="footer-icon"
+                                />
+                                <p class="link-footer-title">Share</p>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a
+                                class="align-items-center d-flex flex-column link"
+                            >
+                                <img src="{{ asset('public/frontend') }}/image/user.png" class="footer-icon" />
+                                <p class="link-footer-title">User</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ asset('public/frontend') }}/assets/js/jquery.min.js"></script>
+        <script src="{{ asset('public/frontend') }}/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ asset('public/frontend') }}/assets/js/slick.min.js"></script>
+    </body>
+</html>

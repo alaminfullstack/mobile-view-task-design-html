@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+      integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .login-card {
+        margin-top: -25px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border: 0;
+      }
+
+      .input-group-text {
+        border: none;
+        background: white;
+        border-bottom: 1px solid #e7e7e7;
+        border-radius: 0px;
+        font-size: 20px;
+        padding: 5px 10px 15px 2px;
+      }
+
+      .form-control {
+        border: 0;
+        outline: none;
+        border-radius: 0;
+        border-bottom: 1px solid #e7e7e7;
+        font-size: 14px;
+        padding: 5px 10px 15px 2px;
+      }
+
+      .form-control:focus {
+        border: 0;
+        border-radius: 0;
+        outline: none;
+        box-shadow: none;
+        border-bottom: 1px solid #e7e7e7;
+      }
+
+      .btn-outline-primary {
+        border-radius: 50px;
+        font-size: 16px;
+      }
+
+      .support-button{
+        position: fixed;
+        right: 20px;
+        bottom: 90px;
+        background: rgb(72, 168, 180);
+        color: white;
+        padding: 25px;
+        border-radius: 50%;
+
+      }
+      .support-button i{
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      class="card-img"
+      src="https://www.researchgate.net/publication/237560623/figure/fig3/AS:645706746445833@1530959893493/Weather-station-equipped-to-measure-temperature-relative-humidity-saturation-deficit.png"
+    />
+
+    <div class="card login-card">
+      <div class="card-body">
+        <form>
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-text">
+                <i class="lar la-heart"></i>
+              </div>
+              <input
+                type="text"
+                name="ref_id"
+                class="form-control"
+                placeholder="আমন্ত্রণ কোড"
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-text">
+                <i class="lar la-user"></i>
+              </div>
+              <input
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="ইউসার নাম"
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-text">
+                <i class="las la-phone"></i>
+              </div>
+              <input
+                type="text"
+                name="phone"
+                class="form-control"
+                placeholder="ফোন নম্বর"
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-text">
+                <i class="las la-lock"></i>
+              </div>
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="পাসওয়ার্ড"
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-text">
+                <i class="las la-lock"></i>
+              </div>
+              <input
+                type="password"
+                name="c_password"
+                class="form-control"
+                placeholder="পাসওয়ার্ড নিশ্চিত করুন"
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <button
+              type="submit"
+              class="btn btn-lg btn-outline-primary w-100 mx-auto"
+            >
+              প্রবেশ করুন
+            </button>
+          </div>
+
+          <p>
+            পাসওয়ার্ডটি একটি বিকেন্দ্রীকৃত পদ্ধতিতে সংরক্ষণ করা হয় এবং হারিয়ে
+            গেলে পুনরুদ্ধার করা যায় না। অনুগ্রহ করে আপনার পাসওয়ার্ড মনে রাখবেন
+            এবং প্রয়োজনে এটি সংশোধন করতে গ্রাহক পরিষেবা কর্মীদের সাথে যোগাযোগ
+            করুন।
+          </p>
+        </form>
+        <a href="" class="btn-link"> আমার অলরেডি অ্যাকাউন্ট আছে , লগইন করুন </a>
+      </div>
+    </div>
+
+    <a href="" class="support-button">
+        <i class="lar la-comments"></i>
+    </a>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $("#eye").on("click", function () {
+        var passwordField = $("#password");
+        var eyeIcon = $(this).find("i");
+
+        if (passwordField.attr("type") === "password") {
+          passwordField.attr("type", "text");
+          eyeIcon.removeClass("las la-eye").addClass("las la-eye-slash");
+        } else {
+          passwordField.attr("type", "password");
+          eyeIcon.removeClass("las la-eye-slash").addClass("las la-eye");
+        }
+      });
+
+      $(document).ready(function () {
+        var randomNumber = Math.floor(Math.random() * 9000) + 1000; // Generates a random 4-digit number
+        $("#verified-code").val(randomNumber);
+      });
+    </script>
+  </body>
+</html>

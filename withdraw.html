@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
+      integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/jquery.toast.css" rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .fs-7 {
+        font-size: 11px;
+      }
+
+      .fs-8 {
+        font-size: 13px;
+      }
+
+      .record-card {
+        box-shadow: 0 0px 3px #a8a3a3;
+        border-radius: 12px;
+      }
+
+      .footer-icon {
+        font-size: 35px;
+        color: black;
+      }
+
+      .link-footer-title {
+        margin: 0;
+        font-size: 10px;
+        color: black;
+      }
+
+      .circle-icon {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+      }
+    </style>
+  </head>
+  <body class="bg-light" style="overflow-x: hidden">
+    <div class="container">
+      <div
+        class="align-items-center d-flex justify-content-center mb-4 py-4 bg-white"
+      >
+        <div class="text-center">
+          <div class="fs-2 fw-bold mb-2 text-primary">4.90 tk</div>
+          <div class="fs-7">পর্যাপ্ত টাকা</div>
+        </div>
+      </div>
+
+      <div class="card border-0 mb-4">
+        <div class="card-body">
+          <div class="d-flex">
+            <div class="fs-8 me-2">প্রত্যাহার অ্যাকাউন্ট</div>
+            <div class="bg-primary rounded-circle circle-icon text-white text-center">
+              <i class="las la-check fs-8 "></i>
+            </div>
+            <div class="ms-2 fs-8">(Bkash) 0179098905</div>
+          </div>
+        </div>
+      </div>
+
+      <h5 class="text-center text-dark fs-6">
+        তোলা টাকার পরিমান
+      </h5>
+
+      <form>
+        <div class="card border-0 mb-3">
+            <div class="card-body">
+                <div class="mb-2">
+                    <div class="input-group">
+                        <span class="bg-white border-0 fs-8 input-group-text text-danger">
+                            তোলা টাকার পরিমান
+                        </span>
+
+                        <input type="number" name="amount" class="form-control border-0 shadow-none fs-8" autofocus />
+                    </div>
+                </div>
+
+                <div class="fs-8 text-danger" style="padding-left: 12px;">
+                    সর্বনিম্ন উত্তোলনের পরিমাণ ৳ 300.00 থেকে শুরু হয়।
+                </div>
+
+                <div class="mb-2 mt-3">
+                    <input type="number" name="password" class="form-control border-0 shadow-none fs-8" placeholder="প্রত্যাহারের পাসওয়ার্ড" />
+                </div>
+
+
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary mb-3 w-100 border-0 rounded-0 fs-8">জমা</button>
+      </form>
+
+      <ol>
+        <li class="fs-8"> আপনি আবদ্ধ করতে চান প্রত্যাহার পদ্ধতি নির্বাচন করুন.</li>
+        <li class="fs-8"> আপনার নাম এবং পেমেন্ট অ্যাকাউন্ট নম্বর লিখুন।</li>
+        <li class="fs-8"> একটি সংগ্রহ অ্যাকাউন্ট শুধুমাত্র একটি EDPR অ্যাকাউন্টের সাথে আবদ্ধ হতে পারে। আপনি একাধিক অ্যাকাউন্ট আবদ্ধ করলে, আপনার অ্যাকাউন্ট নিষিদ্ধ করা হবে।</li>
+      </ol>
+    </div>
+
+    <div style="height: 80px"></div>
+
+    <div
+      class="bg-white pt-2"
+      style="position: fixed; bottom: 0px; left: 0px; width: 100%"
+    >
+      <div class="row row-cols-5">
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="las la-home footer-icon"></i>
+            <p class="link-footer-title">প্রথম পাতা</p>
+          </a>
+        </div>
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="las la-shopping-cart footer-icon"></i>
+            <p class="link-footer-title">পয়েন্টস মল</p>
+          </a>
+        </div>
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="las la-wave-square footer-icon"></i>
+            <p class="link-footer-title">বিনিয়োগ</p>
+          </a>
+        </div>
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="las la-audio-description footer-icon"></i>
+            <p class="link-footer-title">ডিআইপি</p>
+          </a>
+        </div>
+        <div class="col px-0">
+          <a href="/" class="align-items-center d-flex flex-column link">
+            <i class="lar la-user footer-icon"></i>
+            <p class="link-footer-title">আমার</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.toast.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      $.toast({
+        heading: "Error",
+        text: "Use the predefined ones, or specify a custom position object.",
+        position: "top-center",
+        icon: "error",
+        stack: false,
+      });
+
+      $.toast({
+        heading: "Success",
+        text: "Use the predefined ones, or specify a custom position object.",
+        position: "top-center",
+        icon: "success",
+        stack: false,
+      });
+    </script>
+  </body>
+</html>
